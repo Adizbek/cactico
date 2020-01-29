@@ -1,14 +1,15 @@
 {
   "name": "cactico",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Cactico web framework",
-  "main": "build/Cactus.js",
+  "main": "dist/Cactus.js",
   "scripts": {
     "app": "ts-node app/index.ts",
     "start": "ts-node src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublishOnly": "tsc"
   },
+  "types": "dist",
   "keywords": [],
   "author": "Adizbek Ergashev",
   "license": "ISC",

@@ -1,8 +1,10 @@
+import Router from "./Router";
+
 const Koa = require('koa');
 const chalk = require('chalk');
 
 export default class Cactus {
-    private app = new Koa();
+    public app = new Koa();
     private port = 3000;
     private readonly dir: string;
 
@@ -20,17 +22,25 @@ export default class Cactus {
         return this
     }
 
+    router(filename: string): Cactus {
+        const router = new Router(this);
+
+        require(filename).default(router);
+
+        router.activate();
+
+        return this;
+    }
+
     /**
      * @memberOf Cactus
      */
     grow() {
         console.log(chalk.green('🌵 Cactus planted on port: ' + this.port));
 
-        require(this.dir + '/router.ts')(this);
-
         this.app.listen(this.port, () => {
             console.log(chalk.greenBright('Cactus is growing now...'))
-        })
+        });
 
         return this;
     }

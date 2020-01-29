@@ -1,5 +1,9 @@
-import Cactus from "../src/Cactus";
+import Router from "../src/Router";
 
-module.exports = function (app: Cactus) {
-    console.log(app)
-};
+export default function (router: Router) {
+    router.get('/hello', (context, next) => {
+        context.body = {
+            hello: 'world'
+        }
+    })
+}

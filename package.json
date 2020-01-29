@@ -1,6 +1,6 @@
 {
   "name": "cactico",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Cactico web framework",
   "main": "build/Cactus.js",
   "scripts": {

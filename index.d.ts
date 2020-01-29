@@ -1,21 +1,22 @@
 import {IMiddleware} from "koa-router";
 
-declare class Cactus {
+declare module 'cactico' {
+    class Cactus {
 
-    constructor(land: string);
+        constructor(land: string);
 
-    plant(port: number): Cactus;
+        plant(port: number): Cactus;
 
-    grow(): Cactus;
+        grow(): Cactus;
+    }
+
+    class Router {
+
+        constructor(app: Cactus);
+
+        get(path: string, handler: IMiddleware): Router;
+    }
+
+    export = Cactus;
 }
-
-declare class Router {
-
-    constructor(app: Cactus);
-
-    get(path: string, handler: IMiddleware): Router;
-}
-
-export = Cactus;
-
 

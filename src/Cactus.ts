@@ -10,12 +10,19 @@ export default class Cactus {
         this.dir = land
     }
 
+    /**
+     * @memberOf Cactus
+     * @param port
+     */
     plant(port: number): Cactus {
         this.port = port;
 
         return this
     }
 
+    /**
+     * @memberOf Cactus
+     */
     grow() {
         console.log(chalk.green('🌵 Cactus planted on port: ' + this.port));
 
@@ -24,5 +31,7 @@ export default class Cactus {
         this.app.listen(this.port, () => {
             console.log(chalk.greenBright('Cactus is growing now...'))
         })
+
+        return this;
     }
 }

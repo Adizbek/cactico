@@ -1,12 +1,13 @@
 {
   "name": "cactico",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Cactico web framework",
   "main": "build/Cactus.js",
   "scripts": {
     "app": "ts-node app/index.ts",
     "start": "ts-node src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublishOnly": "tsc"
   },
   "keywords": [],
   "author": "Adizbek Ergashev",

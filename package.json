@@ -29,8 +29,5 @@
   "bugs": {
     "url": "https://github.com/Adizbek/cactico/issues"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "homepage": "https://github.com/Adizbek/cactico#readme"
 }

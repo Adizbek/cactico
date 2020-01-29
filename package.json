@@ -2,7 +2,7 @@
   "name": "cactico",
   "version": "1.0.0",
   "description": "Cactico web framework",
-  "main": "index.js",
+  "main": "build/Cactus.js",
   "scripts": {
     "app": "ts-node app/index.ts",
     "start": "ts-node src/index.ts",

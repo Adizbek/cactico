@@ -23,11 +23,9 @@ export default class Cactus {
     }
 
     router(filename: string): Cactus {
-        const router = new Router(this);
-
-        require(filename).default(router);
-
-        router.activate();
+        new Router(this, (router: Router) => {
+            require(filename).default(router);
+        });
 
         return this;
     }

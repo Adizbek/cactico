@@ -1,10 +1,9 @@
 {
   "name": "cactico",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Cactico web framework",
   "main": "dist/Cactus.js",
   "scripts": {
-    "app": "ts-node app/index.ts",
     "start": "ts-node src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublishOnly": "tsc"

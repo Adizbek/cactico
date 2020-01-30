@@ -1,29 +1,30 @@
-import BaseRouter, {IMiddleware} from "koa-router";
+import BaseRouter from "koa-router";
 import Cactus from "./Cactus";
 
-export default class Router {
+export default class Router extends BaseRouter {
 
-    private baseRouter: BaseRouter;
-    private app: Cactus;
+    private cactusApp: Cactus;
 
-    constructor(app: Cactus) {
-        this.app = app;
-        this.baseRouter = new BaseRouter();
+    constructor(app: Cactus, cb: any) {
+        super();
+
+        this.cactusApp = app;
+
+        cb(this);
+
+        this.cactusApp.app
+          .use(this.routes())
+          .use(this.allowedMethods());
+
     }
 
+    group(prefix: string, callback: any) {
+        const router = new BaseRouter({prefix});
 
-    get(path: string, handler: IMiddleware
-    ) {
-        this.baseRouter.get(path, handler);
+        callback(router);
 
-        return this;
-    }
-
-    activate() {
-        this.app.app
-          .use(this.baseRouter.routes())
-          .use(this.baseRouter.allowedMethods());
-
-        console.log("Router activated: ", __filename);
+        this.cactusApp.app
+          .use(router.routes())
+          .use(router.allowedMethods())
     }
 }

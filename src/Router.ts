@@ -1,5 +1,9 @@
-import BaseRouter from "koa-router";
+import BaseRouter, {IMiddleware} from "koa-router";
 import Cactus from "./Cactus";
+
+interface RouterOptions {
+    middlewares?: IMiddleware[] | IMiddleware
+}
 
 export default class Router extends BaseRouter {
 
@@ -18,8 +22,16 @@ export default class Router extends BaseRouter {
 
     }
 
-    group(prefix: string, callback: any) {
+    group(prefix: string, callback: any, options: RouterOptions = {}) {
         const router = new BaseRouter({prefix});
+
+        if (options.middlewares) {
+            if (Array.isArray(options.middlewares)) {
+                router.use(...options.middlewares);
+            } else {
+                router.use(options.middlewares)
+            }
+        }
 
         callback(router);
 

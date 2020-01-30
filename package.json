@@ -1,6 +1,6 @@
 {
   "name": "cactico",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Cactico web framework",
   "main": "dist/Cactus.js",
   "scripts": {
@@ -13,12 +13,12 @@
   "author": "Adizbek Ergashev",
   "license": "ISC",
   "devDependencies": {
-    "@types/koa": "^2.11.0",
-    "@types/koa-router": "^7.4.0",
     "ts-node": "^8.6.2",
     "typescript": "^3.7.5"
   },
   "dependencies": {
+    "@types/koa": "^2.11.0",
+    "@types/koa-router": "^7.4.0",
     "chalk": "^3.0.0",
     "koa": "^2.11.0",
     "koa-router": "^8.0.6"
